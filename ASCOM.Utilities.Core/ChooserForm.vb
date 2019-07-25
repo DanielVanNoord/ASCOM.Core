@@ -75,7 +75,7 @@ Friend Class ChooserForm
 
             cbDriverSelector.Items.Clear()
             If m_Drivers.Count = 0 Then
-                MsgBox("There are no ASCOM " & m_sDeviceType & " drivers installed.", CType(MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation + MsgBoxStyle.MsgBoxSetForeground, MsgBoxStyle), ALERT_MESSAGEBOX_TITLE)
+                System.Windows.Forms.MessageBox.Show("There are no ASCOM " & m_sDeviceType & " drivers installed.", ALERT_MESSAGEBOX_TITLE, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation)
             Else
                 For Each de As Generic.KeyValuePair(Of String, String) In m_Drivers
                     Description = de.Value ' Set the device description
@@ -119,7 +119,7 @@ Friend Class ChooserForm
             InitialMessageTimer.Start() ' Kick off the timer
 
         Catch ex As Exception
-            MsgBox("ChooserForm Load " & ex.ToString)
+            System.Windows.Forms.MessageBox.Show("ChooserForm Load " & ex.ToString)
             LogEvent("ChooserForm Load ", ex.ToString, System.Diagnostics.EventLogEntryType.Error, EventLogErrors.ChooserFormLoad, ex.ToString)
         End Try
     End Sub
@@ -243,13 +243,13 @@ Friend Class ChooserForm
             End Try
 
             If bConnected Then
-                MsgBox("The device is already connected. Just click OK.", CType(MsgBoxStyle.OkOnly + MsgBoxStyle.Information + MsgBoxStyle.MsgBoxSetForeground, MsgBoxStyle), ALERT_MESSAGEBOX_TITLE)
+                System.Windows.Forms.MessageBox.Show("The device is already connected. Just click OK.", ALERT_MESSAGEBOX_TITLE, System.Windows.Forms.MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 Try
                     WarningTooltipClear() ' Clear warning tool tip before entering setup so that the dialogue doesn't interfere with or obscure the setup dialogue.
                     oDrv.SetupDialog()
                 Catch ex As Exception
-                    MsgBox("Driver setup method failed: """ & sProgID & """ " & ex.Message, CType(MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation + MsgBoxStyle.MsgBoxSetForeground, MsgBoxStyle), ALERT_MESSAGEBOX_TITLE)
+                    System.Windows.Forms.MessageBox.Show("Driver setup method failed: """ & sProgID & """ " & ex.Message, ALERT_MESSAGEBOX_TITLE, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation)
                     LogEvent("ChooserForm", "Driver setup method failed for driver: """ & sProgID & """", Diagnostics.EventLogEntryType.Error, EventLogErrors.ChooserSetupFailed, ex.ToString)
                 End Try
             End If
@@ -258,7 +258,7 @@ Friend Class ChooserForm
             Me.cmdOK.Enabled = True
             WarningTooltipClear()
         Catch ex As Exception
-            MsgBox("Failed to load driver: """ & sProgID & """ " & ex.ToString, CType(MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation + MsgBoxStyle.MsgBoxSetForeground, MsgBoxStyle), ALERT_MESSAGEBOX_TITLE)
+            System.Windows.Forms.MessageBox.Show("Failed to load driver: """ & sProgID & """ " & ex.ToString, ALERT_MESSAGEBOX_TITLE, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation)
             LogEvent("ChooserForm", "Failed to load driver: """ & sProgID & """", Diagnostics.EventLogEntryType.Error, EventLogErrors.ChooserDriverFailed, ex.ToString)
         End Try
 
@@ -390,7 +390,7 @@ Friend Class ChooserForm
         Try
             Process.Start("http://ASCOM-Standards.org/")
         Catch ex As Exception
-            MsgBox("Unable to display ASCOM-Standards web site in your browser: " & ex.Message, CType(MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation + MsgBoxStyle.MsgBoxSetForeground, MsgBoxStyle), ALERT_MESSAGEBOX_TITLE)
+            System.Windows.Forms.MessageBox.Show("Unable to display ASCOM-Standards web site in your browser: " & ex.Message, ALERT_MESSAGEBOX_TITLE, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation)
         End Try
     End Sub
 

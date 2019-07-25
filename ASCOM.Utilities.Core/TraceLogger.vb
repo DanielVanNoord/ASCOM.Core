@@ -524,7 +524,7 @@ Public Class TraceLogger
                     g_LogFile.AutoFlush = True
                     g_LogFileActualName = g_LogFileName & ".txt"
                 Catch ex As Exception
-                    MsgBox("CreateLogFile Exception - #" & g_LogFileName & "# " & ex.ToString)
+                    System.Windows.Forms.MessageBox.Show("CreateLogFile Exception - #" & g_LogFileName & "# " & ex.ToString)
                     Throw
                 End Try
         End Select
@@ -582,7 +582,7 @@ Public Class TraceLogger
             End If
         Catch ex As Exception
             LogEvent("LogMsgFormatter", "Exception", EventLogEntryType.Error, EventLogErrors.TraceLoggerException, ex.ToString)
-            'MsgBox("LogMsgFormatter exception: " & Len(l_Msg) & " *" & l_Msg & "* " & ex.ToString, MsgBoxStyle.Critical)
+            'System.Windows.Forms.MessageBox.Show("LogMsgFormatter exception: " & Len(l_Msg) & " *" & l_Msg & "* " & ex.ToString, System.Windows.Forms.MessageBox.ShowStyle.Critical)
         End Try
     End Sub
 

@@ -85,7 +85,7 @@ Namespace VB6HelperSupport 'Tuck this out of the way of the main ASCOM.Utilities
             'Try
             'Profile = New ASCOM.Utilities.XMLAccess("Unspecified Component")
             'Catch ex As Exception
-            ' MsgBox("HelperProfile " & ex.ToString)
+            ' System.Windows.Forms.MessageBox.Show("HelperProfile " & ex.ToString)
             ' End Try
             Me.New("Unspecified Component")
         End Sub
@@ -99,7 +99,7 @@ Namespace VB6HelperSupport 'Tuck this out of the way of the main ASCOM.Utilities
                 TL.Enabled = GetBool(TRACE_PROFILE, TRACE_PROFILE_DEFAULT) 'Get enabled / disabled state from the user registry
                 Call RunningVersions(TL)
             Catch ex As Exception
-                MsgBox("HelperProfile " & ex.ToString)
+                System.Windows.Forms.MessageBox.Show("HelperProfile " & ex.ToString)
             End Try
         End Sub
 
@@ -113,7 +113,7 @@ Namespace VB6HelperSupport 'Tuck this out of the way of the main ASCOM.Utilities
                         Profile.Dispose()
                         Profile = Nothing
                     Catch ex As Exception
-                        MsgBox("VB6HelperSupport ProfileAccess Exception " & ex.ToString)
+                        System.Windows.Forms.MessageBox.Show("VB6HelperSupport ProfileAccess Exception " & ex.ToString)
                     End Try
                     If Not TL Is Nothing Then
                         TL.Enabled = False
@@ -267,11 +267,11 @@ Namespace VB6HelperSupport 'Tuck this out of the way of the main ASCOM.Utilities
 #End Region
 
 #Region "SerialSupport"
-    <ProgId("DriverHelper.SerialSupport"), _
-    ComVisible(True), _
-    Guid("114EBEC4-7887-4ab9-B750-98BB5F1C8A8F"), _
-    ClassInterface(ClassInterfaceType.None), _
-    System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)> _
+    <ProgId("DriverHelper.SerialSupport"),
+    ComVisible(True),
+    Guid("114EBEC4-7887-4ab9-B750-98BB5F1C8A8F"),
+    ClassInterface(ClassInterfaceType.None),
+    System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)>
     Public Class SerialSupport
         Implements ISerialSupport, IDisposable
         'Class to support the VB6 Helper serial component
@@ -296,7 +296,7 @@ Namespace VB6HelperSupport 'Tuck this out of the way of the main ASCOM.Utilities
                 'Get debug trace level on / off
                 DebugTrace = GetBool(SERIAL_TRACE_DEBUG, SERIAL_TRACE_DEBUG_DEFAULT)
             Catch ex As Exception
-                MsgBox("SERIALSUPPORT: " & ex.ToString)
+                System.Windows.Forms.MessageBox.Show("SERIALSUPPORT: " & ex.ToString)
             Finally
                 'Clean up
                 Try : SerialProfile.Dispose() : Catch : End Try
@@ -517,11 +517,11 @@ Namespace VB6HelperSupport 'Tuck this out of the way of the main ASCOM.Utilities
 #End Region
 
 #Region "ChooserSupport"
-    <ProgId("DriverHelper.ChooserSupport"), _
-    ComVisible(True), _
-    Guid("9289B6A5-CAF1-4da1-8A36-999BEBCDD5E9"), _
-    ClassInterface(ClassInterfaceType.None), _
-    System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)> _
+    <ProgId("DriverHelper.ChooserSupport"),
+    ComVisible(True),
+    Guid("9289B6A5-CAF1-4da1-8A36-999BEBCDD5E9"),
+    ClassInterface(ClassInterfaceType.None),
+    System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)>
     Public Class ChooserSupport
         Implements IChooserSupport, IDisposable
 
@@ -536,11 +536,11 @@ Namespace VB6HelperSupport 'Tuck this out of the way of the main ASCOM.Utilities
             'Create a new instance and instanciate the XMLAccess object to do all the hard work
             MyBase.New()
             Try
-                'MsgBox("VB6Helper Before New Utilities.Chooser")
+                'System.Windows.Forms.MessageBox.Show("VB6Helper Before New Utilities.Chooser")
                 myChooser = New Utilities.Chooser
-                'MsgBox("VB6Helper After New Utilities.Chooser")
+                'System.Windows.Forms.MessageBox.Show("VB6Helper After New Utilities.Chooser")
             Catch ex As Exception
-                MsgBox("CHOOSERSUPPORT: " & ex.ToString)
+                System.Windows.Forms.MessageBox.Show("CHOOSERSUPPORT: " & ex.ToString)
             End Try
         End Sub
 
@@ -587,7 +587,7 @@ Namespace VB6HelperSupport 'Tuck this out of the way of the main ASCOM.Utilities
             Try
                 Return myChooser.Choose(CurrentDriverID)
             Catch ex As Exception
-                MsgBox("VB6HELPERSUPPORT.CHOOSE Exception " & ex.ToString)
+                System.Windows.Forms.MessageBox.Show("VB6HELPERSUPPORT.CHOOSE Exception " & ex.ToString)
                 Return "EXCEPTION VALUE"
             End Try
         End Function

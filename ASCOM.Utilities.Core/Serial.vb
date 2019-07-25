@@ -291,7 +291,7 @@ Public Class Serial
             If DebugTrace Then Logger.LogMessage("New", "Available Threads: " & WorkerThreads & " " & CompletionThreads)
 
         Catch ex As Exception
-            MsgBox("Serial:New exception " & ex.ToString)
+            System.Windows.Forms.MessageBox.Show("Serial:New exception " & ex.ToString)
         End Try
 
     End Sub

@@ -50,13 +50,13 @@ Public Class Chooser
     ''' <remarks></remarks>
     Public Sub New()
         MyBase.New()
-        'MsgBox("CHOOSER.NEW Before New Form")
+        'System.Windows.Forms.MessageBox.Show("CHOOSER.NEW Before New Form")
         Try
             m_frmChooser = New ChooserForm ' Initially hidden
         Catch ex As Exception
-            MsgBox("Chooser.New " & ex.ToString)
+            System.Windows.Forms.MessageBox.Show("Chooser.New " & ex.ToString)
         End Try
-        'MsgBox("CHOOSER.NEW AFter New Form")
+        'System.Windows.Forms.MessageBox.Show("CHOOSER.NEW AFter New Form")
         m_sDeviceType = "Telescope" ' Default to Telescope chooser
     End Sub
 
@@ -146,7 +146,7 @@ Public Class Chooser
             m_frmChooser.Dispose()
             m_frmChooser = Nothing
         Catch ex As Exception
-            MsgBox("Chooser Exception: " & ex.ToString)
+            System.Windows.Forms.MessageBox.Show("Chooser Exception: " & ex.ToString)
             LogEvent("Chooser", "Exception", EventLogEntryType.Error, EventLogErrors.ChooserException, ex.ToString)
             RetVal = ""
         End Try

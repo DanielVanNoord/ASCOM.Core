@@ -58,7 +58,7 @@ Friend Class AllUsersFileSystemProvider
                     Return False 'No exception but no file returned so the file does not exist
                 End If
             Catch ex As Exception
-                MsgBox("Exists " & ex.ToString)
+                System.Windows.Forms.MessageBox.Show("Exists " & ex.ToString)
                 Return False 'Exception so file doesn't exist
             End Try
         End Get
@@ -72,7 +72,7 @@ Friend Class AllUsersFileSystemProvider
             p_TL.LogMessage("  CreateDirectory", "Created directory OK")
         Catch ex As Exception
             p_TL.LogMessage("FileSystem.CreateDirectory", "Exception: " & ex.ToString)
-            MsgBox("CreateDirectory Exception: " & ex.ToString)
+            System.Windows.Forms.MessageBox.Show("CreateDirectory Exception: " & ex.ToString)
         End Try
     End Sub
 
@@ -82,9 +82,9 @@ Friend Class AllUsersFileSystemProvider
     End Sub
 
     Friend Sub EraseFileStore() Implements IFileStoreProvider.EraseFileStore
-        Dim Response As MsgBoxResult
-        Response = MsgBox("Are you sure you wish to erase the Utilities profile store?", MsgBoxStyle.OkCancel Or MsgBoxStyle.Critical, "ASCOM.Utilities")
-        If Response = MsgBoxResult.Ok Then
+        Dim Response As System.Windows.Forms.DialogResult
+        Response = System.Windows.Forms.MessageBox.Show("Are you sure you wish to erase the Utilities profile store?", "ASCOM.Utilities", System.Windows.Forms.MessageBoxButtons.OKCancel, System.Windows.Forms.MessageBoxIcon.Warning)
+        If Response = System.Windows.Forms.DialogResult.OK Then
             Try : Directory.Delete(BaseFolder, True) : Catch : End Try
         End If
     End Sub

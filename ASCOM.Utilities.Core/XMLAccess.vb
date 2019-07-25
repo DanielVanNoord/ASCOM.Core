@@ -76,7 +76,7 @@ Friend Class XMLAccess
                 ProfileMutex.Close()
                 ProfileMutex = Nothing
             Catch ex As Exception
-                MsgBox("XMLAccess:Dispose Exception - " & ex.ToString)
+                System.Windows.Forms.MessageBox.Show("XMLAccess:Dispose Exception - " & ex.ToString)
             End Try
         End If
         Me.disposedValue = True
@@ -599,7 +599,7 @@ Friend Class XMLAccess
             TL.LogMessage("  WriteValues", "  Created cache entry " & p_SubKeyName & " - " & swSupport.ElapsedMilliseconds & " milliseconds")
         Catch ex As Exception
             TL.LogMessageCrLf("  WriteValues", "  Exception " & p_SubKeyName & " " & ex.ToString)
-            MsgBox("XMLAccess:Writevalues " & p_SubKeyName & " " & ex.ToString)
+            System.Windows.Forms.MessageBox.Show("XMLAccess:Writevalues " & p_SubKeyName & " " & ex.ToString)
         End Try
     End Sub
 
