@@ -4,6 +4,7 @@ Imports System.IO
 Imports ASCOM.Utilities.Interfaces
 Imports ASCOM.Utilities.Exceptions
 Imports System.Runtime.InteropServices
+Imports Microsoft.VisualBasic.FileIO
 
 ''' <summary>
 ''' Creates a log file for a driver or application. Uses a similar file name and internal format to the serial logger. Multiple logs can be created simultaneously if needed.
@@ -488,11 +489,11 @@ Public Class TraceLogger
             Case "", SERIAL_AUTO_FILENAME
                 If g_LogFileType = "" Then Throw New ValueNotSetException("TRACELOGGER.CREATELOGFILE - Call made but no log file type has been set")
                 If g_LogFilePath = "" Then ' Default behaviour using the current user's Document directory
-                    My.Computer.FileSystem.CreateDirectory(g_DefaultLogFilePath) 'Create the directory if it doesn't exist
+                    FileSystem.CreateDirectory(g_DefaultLogFilePath) 'Create the directory if it doesn't exist
                     FileNameBase = g_DefaultLogFilePath & "\ASCOM." & g_LogFileType & "." & Format(Now, "HHmm.ssfff")
                 Else ' User has given a specific path so use that
                     TodaysLogFilePath = g_LogFilePath & TRACE_LOGGER_FILENAME_BASE & Format(Now, TRACE_LOGGER_FILE_NAME_DATE_FORMAT) ' Append Logs yyyy-mm-dd to the user supplied log file
-                    My.Computer.FileSystem.CreateDirectory(TodaysLogFilePath) 'Create the directory if it doesn't exist
+                    FileSystem.CreateDirectory(TodaysLogFilePath) 'Create the directory if it doesn't exist
                     FileNameBase = TodaysLogFilePath & "\ASCOM." & g_LogFileType & "." & Format(Now, "HHmm.ssfff")
                 End If
                 Do 'Create a unique log file name based on date, time and required name
