@@ -48,7 +48,7 @@ Public Class [Timer]
     'Set up a timer to create the tick events. Use a FORMS timer so that it will fire on the current owner's thread
     'If you use a system timer it will  fire on its own thread and this will be invisble to the application!
     'Private WithEvents m_Timer As System.Windows.Forms.Timer
-    Private WithEvents FormTimer As Windows.Forms.Timer
+    Private WithEvents FormTimer As System.Windows.Forms.Timer
     Private WithEvents TimersTimer As System.Timers.Timer
 
     Private IsForm, TraceEnabled As Boolean
@@ -78,7 +78,7 @@ Public Class [Timer]
         TL.Enabled = TraceEnabled
 
         TL.LogMessage("New", "Started on thread: " & Threading.Thread.CurrentThread.ManagedThreadId.ToString)
-        FormTimer = New Windows.Forms.Timer
+        FormTimer = New System.Windows.Forms.Timer
         TL.LogMessage("New", "Created FormTimer")
         FormTimer.Enabled = False ' Default settings
         FormTimer.Interval = 1000 ' Inital period - 1 second

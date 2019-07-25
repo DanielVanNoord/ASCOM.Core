@@ -279,7 +279,7 @@
     Friend WithEvents MenuDriverAccessTraceEnabled As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MenuAstroUtilsTraceEnabled As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MenuNovasTraceEnabled As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents MenuCacheTraceEnabled As ToolStripMenuItem
-    Friend WithEvents MenuEarthRotationDataFormTraceEnabled As ToolStripMenuItem
+    Friend WithEvents MenuCacheTraceEnabled As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MenuEarthRotationDataFormTraceEnabled As System.Windows.Forms.ToolStripMenuItem
 #End Region
 End Class

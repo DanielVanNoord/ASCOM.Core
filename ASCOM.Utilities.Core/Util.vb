@@ -106,7 +106,7 @@ Public Class Util
             EndPoint = CDbl(Milliseconds - 20) * Stopwatch.Frequency / 1000.0
             Do
                 Thread.Sleep(10)
-                Application.DoEvents()
+                System.Windows.Forms.Application.DoEvents()
             Loop Until m_StopWatch.ElapsedTicks >= EndPoint
         End If
         'Calculate the final tick end point and wait using sleep(0) for maximum accuracy

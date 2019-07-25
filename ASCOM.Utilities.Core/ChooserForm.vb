@@ -5,6 +5,7 @@ Imports System.Runtime.InteropServices
 Imports ASCOM.Utilities.Interfaces
 Imports System.Drawing
 Imports System.Drawing.Drawing2D
+Imports System.Windows.Forms
 
 Friend Class ChooserForm
     Inherits System.Windows.Forms.Form
@@ -415,7 +416,7 @@ Friend Class ChooserForm
         ProfileStore = New RegistryAccess(ERR_SOURCE_CHOOSER) 'Get access to the profile store
         RetVal = SerialTraceFileName.ShowDialog()
         Select Case RetVal
-            Case Windows.Forms.DialogResult.OK
+            Case DialogResult.OK
                 'Save the reault
                 ProfileStore.WriteProfile("", SERIAL_FILE_NAME_VARNAME, SerialTraceFileName.FileName)
                 'Check and enable the serial trace enabled flag
