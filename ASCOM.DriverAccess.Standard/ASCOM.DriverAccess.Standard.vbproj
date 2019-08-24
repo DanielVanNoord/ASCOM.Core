@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ASCOM.DriverAccess</RootNamespace>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.0.0-preview7.19362.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ASCOM.Exceptions">
+      <HintPath>C://Program Files (x86)\ASCOM\Platform 6 Developer Components\Components\Platform6\ASCOM.Exceptions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

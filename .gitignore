@@ -2,3 +2,5 @@ ASCOMStandard/
 ASCOM.Utilities.Core/obj/
 .vs/
 ASCOM.Utilities.Core/bin/
+ASCOM.DriverAccess.Standard/bin/
+ASCOM.DriverAccess.Standard/obj/
