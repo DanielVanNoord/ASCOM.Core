@@ -3,6 +3,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <RootNamespace>ASCOM.Utilities</RootNamespace>
+    <MyType>Empty</MyType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +12,7 @@
 
   <ItemGroup>
     <Reference Include="ASCOM.Exceptions">
-      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\ASCOM\Platform 6 Developer Components\Components\Platform6\ASCOM.Exceptions.dll</HintPath>
+      <HintPath>C://Program Files (x86)\ASCOM\Platform 6 Developer Components\Components\Platform6\ASCOM.Exceptions.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
