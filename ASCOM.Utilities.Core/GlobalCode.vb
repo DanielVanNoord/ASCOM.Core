@@ -297,7 +297,7 @@ End Module
 #End Region
 
 #Region "Windows event log code"
-Module EventLogCode
+Public Module EventLogCode
     ''' <summary>
     ''' Add an event record to the ASCOM Windows event log
     ''' </summary>
@@ -307,7 +307,7 @@ Module EventLogCode
     ''' <param name="Id">Id number</param>
     ''' <param name="Except">Initiating exception or Nothing</param>
     ''' <remarks></remarks>
-    Friend Sub LogEvent(ByVal Caller As String, ByVal Msg As String, ByVal Severity As EventLogEntryType, ByVal Id As EventLogErrors, ByVal Except As String)
+    Public Sub LogEvent(ByVal Caller As String, ByVal Msg As String, ByVal Severity As EventLogEntryType, ByVal Id As EventLogErrors, ByVal Except As String)
         Dim ELog As EventLog, MsgTxt As String
 
         ' During Platform 6 RC testing a report was received showing that a failure in this code had caused a bad Profile migration

@@ -17,7 +17,7 @@ Public Module GlobalConstants
     Friend Const TRACE_UTIL As String = "Trace Util", TRACE_UTIL_DEFAULT As Boolean = False
     Friend Const TRACE_TIMER As String = "Trace Timer", TRACE_TIMER_DEFAULT As Boolean = False
     Friend Const SERIAL_TRACE_DEBUG As String = "Serial Trace Debug", SERIAL_TRACE_DEBUG_DEFAULT As Boolean = False
-    Friend Const SIMULATOR_TRACE As String = "Trace Simulators", SIMULATOR_TRACE_DEFAULT As Boolean = False
+    Public Const SIMULATOR_TRACE As String = "Trace Simulators", SIMULATOR_TRACE_DEFAULT As Boolean = False
     Public Const DRIVERACCESS_TRACE As String = "Trace DriverAccess", DRIVERACCESS_TRACE_DEFAULT As Boolean = False
     Friend Const CHOOSER_USE_CREATEOBJECT As String = "Chooser Use CreateObject", CHOOSER_USE_CREATEOBJECT_DEFAULT As Boolean = False
     Friend Const ABANDONED_MUTEXT_TRACE As String = "Trace Abandoned Mutexes", ABANDONED_MUTEX_TRACE_DEFAULT As Boolean = False
@@ -96,7 +96,7 @@ Public Module GlobalConstants
     Friend Const TRACE_LOGGER_FILENAME_BASE As String = "\Logs " ' Fixed part of TraceLogger file name.  Note: The trailing space must be retained!
     Friend Const TRACE_LOGGER_FILE_NAME_DATE_FORMAT As String = "yyyy-MM-dd"
 
-    Friend Enum EventLogErrors As Integer
+    Public Enum EventLogErrors As Integer
         EventLogCreated = 0
         ChooserFormLoad = 1
         MigrateProfileVersions = 2
