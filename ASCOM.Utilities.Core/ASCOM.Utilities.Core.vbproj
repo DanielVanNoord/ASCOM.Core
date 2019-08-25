@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <Reference Include="ASCOM.Exceptions">
-      <HintPath>C://Program Files (x86)\ASCOM\Platform 6 Developer Components\Components\Platform6\ASCOM.Exceptions.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Components\Platform6\ASCOM.Exceptions.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
