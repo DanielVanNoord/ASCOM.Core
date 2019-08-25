@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ASCOM.DriverAccess.Core\ASCOM.DriverAccess.Core.csproj" />
+    <ProjectReference Include="..\ASCOM.Utilities.Core\ASCOM.Utilities.Core.vbproj" />
+  </ItemGroup>
+
+</Project>

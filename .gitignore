@@ -6,3 +6,5 @@ ASCOM.DriverAccess.Standard/bin/
 ASCOM.DriverAccess.Standard/obj/
 ASCOM.DriverAccess.Core/bin/
 ASCOM.DriverAccess.Core/obj/
+ASCOM.Core.LoadTester/bin/
+ASCOM.Core.LoadTester/obj/

@@ -238,7 +238,7 @@ Friend Class ChooserForm
             bConnected = False
             Try
                 bConnected = oDrv.Connected
-            Catch
+            Catch x As Exception
                 Try : bConnected = oDrv.Link : Catch : End Try
             End Try
 

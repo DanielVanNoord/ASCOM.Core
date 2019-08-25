@@ -37,7 +37,7 @@ namespace ASCOM.DriverAccess
         {
             // Create a new TraceLogger and enable if appropriate
             TL = new TraceLogger("", "DriverAccess");
-            TL.Enabled = RegistryCommonCode.GetBool(GlobalConstants.DRIVERACCESS_TRACE, GlobalConstants.DRIVERACCESS_TRACE_DEFAULT);
+            //TL.Enabled = RegistryCommonCode.GetBool(GlobalConstants.DRIVERACCESS_TRACE, GlobalConstants.DRIVERACCESS_TRACE_DEFAULT);
             TL.LogMessage("AscomDriver", "Successfully created TraceLogger");
             TL.LogMessage("AscomDriver", "Device ProgID: " + deviceProgId);
 
