@@ -114,7 +114,7 @@ End Module
 #End Region
 
 #Region "Registry Utility Code"
-Module RegistryCommonCode
+Public Module RegistryCommonCode
     Friend Function GetWaitType(ByVal p_Name As String, ByVal p_DefaultValue As ASCOM.Utilities.Serial.WaitType) As WaitType
         Dim l_Value As WaitType
         Dim m_HKCU, m_SettingsKey As RegistryKey
@@ -289,6 +289,10 @@ Module RegistryCommonCode
         m_HKCU = Nothing
 
     End Sub
+
+    Public Function GetBool(dRIVERACCESS_TRACE As Object, dRIVERACCESS_TRACE_DEFAULT As Object) As Boolean
+        Throw New System.NotImplementedException()
+    End Function
 End Module
 #End Region
 
