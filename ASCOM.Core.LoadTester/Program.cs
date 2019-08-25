@@ -23,14 +23,14 @@ namespace ASCOM
             // choose the device
             using (ASCOM.Utilities.Chooser chooser = new Utilities.Chooser())
             {
-                chooser.DeviceType = "Focuser";
+                chooser.DeviceType = "Telescope";
                 id = chooser.Choose(string.Empty);
             }
 
             if (string.IsNullOrEmpty(id))
                 return;
             // create this device
-            ASCOM.DriverAccess.Focuser device = new ASCOM.DriverAccess.Focuser(id);
+            ASCOM.DriverAccess.Telescope device = new ASCOM.DriverAccess.Telescope(id);
 
             // now run some tests, adding code to your driver so that the tests will pass.
             // these first tests are common to all drivers.
@@ -38,10 +38,10 @@ namespace ASCOM
             Console.WriteLine("description " + device.Description);
             Console.WriteLine("DriverInfo " + device.DriverInfo);
             Console.WriteLine("driverVersion " + device.DriverVersion);
+
             device.SetupDialog();
             // TODO add more code to test the driver.
             device.Connected = true;
-
 
             device.Connected = false;
             Console.WriteLine("Press Enter to finish");
