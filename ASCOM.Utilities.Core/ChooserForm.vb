@@ -6,6 +6,7 @@ Imports ASCOM.Utilities.Interfaces
 Imports System.Drawing
 Imports System.Drawing.Drawing2D
 Imports System.Windows.Forms
+Imports System.Reflection
 
 Friend Class ChooserForm
     Inherits System.Windows.Forms.Form
@@ -200,7 +201,9 @@ Friend Class ChooserForm
     '
     ' Click in Properties... button. Load the currently selected
     ' driver and activate its setup dialog.
-    '
+    ' 
+
+    'This uses dynamic com loading which does not work yet in Net Core. This needs to be rewritten to use reflection. See https://github.com/dotnet/coreclr/issues/24246
     Private Sub cmdProperties_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cmdProperties.Click
         Dim ProfileStore As RegistryAccess
         Dim oDrv As Object = Nothing ' The driver
@@ -209,6 +212,7 @@ Friend Class ChooserForm
         Dim sProgID As String = ""
         Dim ProgIdType As Type
         Dim UseCreateObject As Boolean = False
+        Dim null As Object = Nothing
 
         ProfileStore = New RegistryAccess(ERR_SOURCE_CHOOSER) 'Get access to the profile store
         cb = Me.cbDriverSelector ' Convenient shortcut
@@ -237,9 +241,9 @@ Friend Class ChooserForm
             ' Here we try to see if a device is already connected. If so, alert and just turn on the OK button.
             bConnected = False
             Try
-                bConnected = oDrv.Connected
+                bConnected = oDrv.GetType().InvokeMember("Connected", (BindingFlags.Public Or BindingFlags.GetProperty), null, oDrv, null)
             Catch x As Exception
-                Try : bConnected = oDrv.Link : Catch : End Try
+                Try : bConnected = oDrv.GetType().InvokeMember("Link", (BindingFlags.Public Or BindingFlags.GetProperty), null, oDrv, null) : Catch : End Try
             End Try
 
             If bConnected Then
@@ -247,7 +251,7 @@ Friend Class ChooserForm
             Else
                 Try
                     WarningTooltipClear() ' Clear warning tool tip before entering setup so that the dialogue doesn't interfere with or obscure the setup dialogue.
-                    oDrv.SetupDialog()
+                    oDrv.GetType().InvokeMember("SetupDialog", (BindingFlags.Public Or BindingFlags.InvokeMethod), null, oDrv, null)
                 Catch ex As Exception
                     System.Windows.Forms.MessageBox.Show("Driver setup method failed: """ & sProgID & """ " & ex.Message, ALERT_MESSAGEBOX_TITLE, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation)
                     LogEvent("ChooserForm", "Driver setup method failed for driver: """ & sProgID & """", Diagnostics.EventLogEntryType.Error, EventLogErrors.ChooserSetupFailed, ex.ToString)
@@ -263,7 +267,7 @@ Friend Class ChooserForm
         End Try
 
         'Clean up and release resources
-        Try : oDrv.Dispose() : Catch ex As Exception : End Try
+        Try : oDrv.GetType().InvokeMember("Dispose", (BindingFlags.Public Or BindingFlags.InvokeMethod), null, oDrv, null) : Catch ex As Exception : End Try
         Try : Marshal.ReleaseComObject(oDrv) : Catch ex As Exception : End Try
         oDrv = Nothing
 
