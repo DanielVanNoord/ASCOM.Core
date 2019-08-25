@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ASCOM.DriverAccess</RootNamespace>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <MyType>Empty</MyType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ASCOM.Utilities.Core\ASCOM.Utilities.Core.vbproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ASCOM.Exceptions">
+      <HintPath>C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Components\Platform6\ASCOM.Exceptions.dll</HintPath>
+    </Reference>
+    <Reference Include="ASCOM.DeviceInterfaces">
+      <HintPath>C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Components\Platform6\ASCOM.DeviceInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ASCOM.Interfaces">
+      <HintPath>..\Interfaces\Master Interfaces\ASCOM.Interfaces.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
