@@ -412,7 +412,14 @@ namespace ASCOM.DriverAccess
             {
                 try
                 {
-                    return (ArrayList)memberFactory.CallMember(1, "SupportedActions", new Type[] { }, new object[] { });
+                    //Can't directly cast System._comobject to arraylist if the driver was written in .net core. Need to cast to IEnumerable and then iterate over.
+                    var templist = new ArrayList();
+
+                    foreach(var item in (IEnumerable)memberFactory.CallMember(1, "SupportedActions", new Type[] { }, new object[] { }))
+                    {
+                        templist.Add(item);
+                    }
+                    return templist;
                 }
                 catch (Exception ex)
                 {
