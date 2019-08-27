@@ -1,6 +1,6 @@
 ## ASCOM.Core
 
-This is an experimental port of several ASCOM .Net libraries for driver development. Because this includes WinForms and COM Objects it is only for the Windows platform. Both ASCOM.Utilities and ASCOM.DriverAccess should contain effectively identical functions to the main platform. Together they should allow both the creation of .Net Core COM based drivers and allow .Net Core apps to load existing ASCOM drivers. You can see a sample .Net Core local server here: https://github.com/DanielVanNoord/TelescopeSimulator-Core.
+This is an experimental port of several ASCOM .Net libraries for driver development. Because this includes WinForms and COM Objects it is only for the Windows platform. Both ASCOM.Utilities and ASCOM.DriverAccess should contain effectively identical functions to the main platform. Together they should allow both the creation of .Net Core COM based drivers and allow .Net Core apps to load existing ASCOM drivers. You can see a sample .Net Core local server here: https://github.com/DanielVanNoord/TelescopeSimulator-Core. ASCOM.Core.LoadTester is a simple NetCore 3.0 console app that demonstrates the loading and access of an ASCOM driver using DriverAccess.
 
 This requires .Net Core 3.0 release 7 or higher to build. You can download this here: https://dotnet.microsoft.com/download/dotnet-core/3.0. Once this is installed you need to enable preview features in Visual Studio 2019.2 (Tools > Options > Environment > Preview Features) or install the current Visual Studio preview.
 
