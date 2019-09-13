@@ -1,4 +1,4 @@
-﻿// This implements a console application that can be used to test an ASCOM driver
+// This implements a console application that can be used to test an ASCOM driver
 //
 
 // This is used to define code in the template that is specific to one class implementation
