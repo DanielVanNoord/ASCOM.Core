@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ASCOM.DriverAccess</RootNamespace>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <MyType>Empty</MyType>
+    <Version>6.0.0.0</Version>
+    <Copyright>Copyright © 2009 Timothy P. Long and TiGra Astronomy</Copyright>
+    <Authors>Tim P Long</Authors>
+    <Product>ASCOM.SettingsProvider</Product>
+    <Company>TiGra Astronomy</Company>
+    <Description>Integrates ASCOM.Utilities.Profile and the Visual Studio settings designer.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ASCOM.Utilities.Core\ASCOM.Utilities.Core.vbproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ASCOM.Exceptions">
+      <HintPath>C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Components\Platform6\ASCOM.Exceptions.dll</HintPath>
+    </Reference>
+	<Reference Include="ASCOM.Attributes">
+      <HintPath>C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Components\Platform6\ASCOM.Attributes.dll</HintPath>
+    </Reference>
+	<Reference Include="ASCOM.Internal.Extensions">
+      <HintPath>C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Components\Platform6\ASCOM.Internal.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

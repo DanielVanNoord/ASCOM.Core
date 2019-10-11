@@ -10,4 +10,5 @@ ASCOM.Core.LoadTester/bin/
 ASCOM.Core.LoadTester/obj/
 ASCOM.Controls.Core/bin/
 ASCOM.Controls.Core/obj/
-
+ASCOM.SettingsProvider/ASCOM.SettingsProvider/bin/
+ASCOM.SettingsProvider/ASCOM.SettingsProvider/obj/
