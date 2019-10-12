@@ -1301,7 +1301,7 @@ Friend Class PEReader
     Private stream As Stream
     Private IsAssembly As Boolean = False
     Private AssemblyInfo As AssemblyName
-    Private SuppliedAssembly As Assembly
+    ' Private SuppliedAssembly As Assembly
     Private AssemblyDeterminationType As String
     Private OS32BitCompatible As Boolean = False
     Private ExecutableBitness As Bitness
@@ -1325,7 +1325,8 @@ Friend Class PEReader
         ' Determine whether this is an assembly by testing whether we can load the file as an assembly, if so then it IS an assembly!
         TL.LogMessage("PEReader", "Determining whether this is an assembly")
         Try
-            SuppliedAssembly = Assembly.ReflectionOnlyLoadFrom(FileName)
+            ' Assembly.ReflectionOnlyLoadFrom not supported in .NET Core. Need to find another solution and/or evaluate if this is even needed.
+            ' SuppliedAssembly = Assembly.ReflectionOnlyLoadFrom(FileName)
             IsAssembly = True ' We got here without an exception so it must be an assembly
             TL.LogMessage("PEReader.IsAssembly", "Found an assembly because it loaded Ok to the reflection context: " & IsAssembly)
         Catch ex As System.IO.FileNotFoundException
