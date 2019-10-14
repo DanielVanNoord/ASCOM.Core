@@ -1301,7 +1301,6 @@ Friend Class PEReader
     Private stream As Stream
     Private IsAssembly As Boolean = False
     Private AssemblyInfo As AssemblyName
-    ' Private SuppliedAssembly As Assembly
     Private AssemblyDeterminationType As String
     Private OS32BitCompatible As Boolean = False
     Private ExecutableBitness As Bitness
